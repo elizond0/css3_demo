@@ -38,7 +38,6 @@ div{
 ```
 
 * 阴影模糊半径与阴影扩展半径的区别
-
 1. 阴影模糊半径：此参数可选，其值只能是为正值，如果其值为0时，表示阴影不具有模糊效果，其值越大阴影的边缘就越模糊  
 2. 阴影扩展半径：此参数可选，其值可以是正负值，如果值为正，则整个阴影都延展扩大，反之值为负值时，则缩小；  
 
@@ -50,4 +49,32 @@ div {
     height:100px;
     box-shadow:-4px 4px 6px #666;
 }
+```
+
+### 3. 边框应用图片:border-image
+
+```css
+/* 与background属性比较相似 */
+div{
+   background:#F4FFFA;
+   width:210px; height:210px; border:70px solid #ddd;
+   border-image:url(borderimg.png) 70 repeat;
+}
+```
+
+### 4. 颜色-RGBA/渐变色彩
+
+```css
+/* RGBA */
+background-color:rgba(100,120,60,0.5);
+```
+
+* 渐变Gradient 分为线性渐变(linear)和径向渐变(radial), IE10+、Firefox19.0+、Chrome26.0+ 和 Opera12.1+
+1. 线性linear-gradient(方向,起始点,结束点)
+2. 径向radial-gradient(起始点,结束点),没有方向,是从中心向外扩散
+
+```css
+/* to left 表示右向左,颜色参数可以多个 */
+background-image:linear-gradient(to left, red, orange,yellow,green,blue,indigo,violet);
+background-image:radial-gradient(red, orange,yellow,green,blue,indigo,violet);
 ```
