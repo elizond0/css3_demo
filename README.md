@@ -182,9 +182,46 @@ p:empty {
 1. 触发元素的URL中的标志符通常会包含一个#号，后面带有一个标志符名称，例如a href="#brand"中的"#brand"
 2. :target就是用来匹配id为“brand”的元素（id="brand"的元素）
 
-* first-child / last-child : 第一个子元素 / 最后一个子元素
+* :first-child / :last-child - 第一个子元素 / 最后一个子元素
 
-* :nth-child(n) / :nth-child(n) : 正数第n个 / 倒数第n个
+* :nth-child(n) / :nth-child(n) - 正数第n个 / 倒数第n个
 1. 参数n是从1开始的正数,也可以是odd,even单双数
 2. n可以选0,并且进行2n+1等表达式进行选择
 3. n表达式<=0时,不匹配任何元素
+
+* :first-of-type / :last-of-type / :nth-of-type(n) / :nth-last-of-type(n) - 匹配元素,用法与child类似,但不是子元素
+
+```css
+/* 匹配第一个p元素 */
+p:first-of-type {
+  background: orange;
+}
+```
+
+* :only-child - 匹配的元素的父元素中仅有一个子元素，而且是一个唯一的子元素。
+
+* :only-of-type - 匹配一个元素他有很多个子元素，而其中只有一种类型的子元素是唯一的
+
+### 10. CSS3选择器-UI元素状态伪类选择器
+
+* :enabled / :disabled - 匹配拥有 disabled和enbaled 属性的表单元素
+
+* :checked - 匹配拥有 checked 属性的表单元素
+
+* ::selection - 匹配拥有突出显示的文本(用鼠标选择文本时的文本)。浏览器默认情况下，用鼠标选择网页文本是以“深蓝的背景，白色的字体”显示的
+
+* :read-only / :read-write - 匹配拥有 readonly 属性的表单元素,只读和非只读
+
+* ::before / ::after - 主要用来给元素的前面或后面插入内容，这两个常和"content"配合使用，使用的场景最多的就是清除浮动。
+
+```css
+.clearfix::before,
+.clearfix::after {
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+.clearfix:after {clear: both;}
+.clearfix {zoom: 1;}
+```
