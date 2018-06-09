@@ -120,3 +120,32 @@ p {
 Color：是指阴影的颜色，其可以使用rgba色
 text-shadow: 0 1px 1px #fff
 ```
+
+### 6. 背景相关
+
+* background-origin设置元素背景图片的原始起始位置。参数:边框|内边距(default)|内容
+
+```css
+/* 背景必须是no-repeat才有效，否则会从边框开始显示。 */
+background-origin ： border-box | padding-box | content-box;
+```
+
+* background-clip用来将背景图片做适当的裁剪以适应实际需要。参数:边框(default)|内边距|内容区域|不裁切
+
+```css
+background-clip ： border-box | padding-box | content-box | no-clip;
+```
+
+* background-size设置背景图片的大小，以长度值或百分比显示，还可以通过cover和contain来对图片进行伸缩
+
+```css
+background-size: auto | <长度值px> | <百分比%> | cover拉伸填充 | contain等比缩放
+```
+
+* multiple backgrounds多重背景,就是CSS2里background的属性外加origin、clip和size组成的新background的多次叠加，缩写时为用逗号隔开的每组值；用分解写法时，如果有多个背景图片，而其他属性只有一个（例如background-repeat只有一个），表明所有背景图片应用该属性值。
+
+```css
+background ： [background-color] | [background-image] | [background-position] | [background-size] | [background-repeat] | [background-attachment] | [background-clip] | [background-origin]
+```
+
+* css3制作导航菜单: @/demo/nav-menu.html
