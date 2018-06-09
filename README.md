@@ -149,3 +149,42 @@ background ： [background-color] | [background-image] | [background-position] |
 ```
 
 * css3制作导航菜单: @/demo/nav-menu.html
+
+### 8. CSS3选择器-属性选择器
+
+* 属性选择器,css3在css2的基础上扩展了通配符,类似于正则中的 ^$*
+1. '^' - 开头 : target[attr^="value"]
+2. '$' - 结尾 : target[attr$="value"]
+3. '*' - 所有 : target[attr*="value"]
+
+### 9. CSS3选择器-结构性伪类选择器
+
+* :root - 指向html标签
+
+* :not - 否定选择器
+
+```css
+/* 匹配条件:1,input;2,type属性不为submit的 */
+input:not([type="submit"]){
+  border:1px solid red;
+}
+```
+
+* :empty - 选择没有任何内容的元素,空格也是内容
+
+```css
+p:empty {
+  display: none;
+}​
+```
+
+* :target - 目标选择器，用来匹配文档(页面)的url的某个标志符的目标元素
+1. 触发元素的URL中的标志符通常会包含一个#号，后面带有一个标志符名称，例如a href="#brand"中的"#brand"
+2. :target就是用来匹配id为“brand”的元素（id="brand"的元素）
+
+* first-child / last-child : 第一个子元素 / 最后一个子元素
+
+* :nth-child(n) / :nth-child(n) : 正数第n个 / 倒数第n个
+1. 参数n是从1开始的正数,也可以是odd,even单双数
+2. n可以选0,并且进行2n+1等表达式进行选择
+3. n表达式<=0时,不匹配任何元素
