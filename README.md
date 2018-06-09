@@ -78,3 +78,45 @@ background-color:rgba(100,120,60,0.5);
 background-image:linear-gradient(to left, red, orange,yellow,green,blue,indigo,violet);
 background-image:radial-gradient(red, orange,yellow,green,blue,indigo,violet);
 ```
+
+### 5. 文字与字体
+
+* text-overflow用来设置是否使用一个省略标记（...）标示对象内文本的溢出,经常与强制文本不换行(white-space:nowrap)和溢出隐藏(overflow:hidden)配合使用
+
+```css
+text-overflow:ellipsis;
+overflow:hidden;
+white-space:nowrap;
+```
+
+* word-wrap可以用来设置文本行为，当前行超过指定容器的边界时是否断开转行,break-word设置在长单词或 URL地址内部进行换行，此属性不常用，用浏览器默认值即可
+
+```css
+/* 默认normal,连续文本换行,break-word表示内容将在边界内换行 */
+word-wrap:break-word
+```
+
+* 嵌入字体@font-face能够加载服务器端的字体文件，让浏览器端可以显示用户电脑里没有安装的字体。
+
+```css
+@font-face {
+    font-family : 'My Font';
+    src : '字体文件在服务器上的相对或绝对路径';
+}
+p {
+    font-size :12px;
+    font-family : "My Font";
+    /*必须项，设置@font-face中font-family同样的值*/
+}
+```
+
+* 文本阴影text-shadow可以用来设置文本的阴影效果
+
+```css
+/* text-shadow: X-Offset Y-Offset blur color; */
+/* X-Offset：表示阴影的水平偏移距离，其值为正值时阴影向右偏移，反之向左偏移； */
+/* Y-Offset：是指阴影的垂直偏移距离，如果其值是正值时，阴影向下偏移，反之向上偏移； */
+/* Blur：是指阴影的模糊程度，其值不能是负值，如果值越大，阴影越模糊，反之阴影越清晰，如果不需要阴影模糊可以将Blur值设置为0； */
+Color：是指阴影的颜色，其可以使用rgba色
+text-shadow: 0 1px 1px #fff
+```
