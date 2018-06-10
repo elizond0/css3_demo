@@ -225,3 +225,50 @@ p:first-of-type {
 .clearfix:after {clear: both;}
 .clearfix {zoom: 1;}
 ```
+
+### 11. CSS3变形
+
+* 旋转 rotate()函数通过指定的角度参数使元素相对原点进行旋转。它主要在二维空间内进行操作，设置一个角度值，用来指定旋转的幅度。如果这个值为正值，元素相对原点中心顺时针旋转；如果这个值为负值，元素相对原点中心逆时针旋转。
+
+```css
+transform: rotate(45deg);
+```
+
+* 扭曲 skew()函数能够让元素倾斜显示。它可以将一个对象以其中心位置围绕着X轴和Y轴按照一定的角度倾斜。这与rotate()函数的旋转不同，rotate()函数只是旋转，而不会改变元素的形状。skew()函数不会旋转，而只会改变元素的形状。
+1. skew(x,y)使元素在水平和垂直方向同时扭曲（X轴和Y轴同时按一定的角度值进行扭曲变形）
+2. skewX(x)仅使元素在水平方向扭曲变形（X轴扭曲变形）
+3. skewY(y)仅使元素在垂直方向扭曲变形（Y轴扭曲变形）
+
+```css
+transform: skew(45deg);
+```
+
+* 缩放 scale()函数 让元素根据中心原点对对象进行缩放。
+1. scale(X,Y)使元素水平方向和垂直方向同时缩放（X轴和Y轴同时缩放）
+2. scaleX(x)元素仅水平方向缩放（X轴缩放）
+3. scaleY(y)元素仅垂直方向缩放（Y轴缩放）
+
+```css
+transform: scale(1.5);
+```
+
+* 位移 translate()可以将元素向指定的方向移动，类似于position中的relative，可以把元素从原来的位置移动，而不影响在X、Y轴上的任何Web组件。
+1. translate(x,y)水平方向和垂直方向同时移动（X轴和Y轴同时移动）
+2. translateX(x)仅水平方向移动（X轴移动）
+3. translateY(Y)仅垂直方向移动（Y轴移动）
+
+```css
+transform: translate(50px,100px);
+```
+
+* 矩阵 matrix()是一个含六个值的(a,b,c,d,e,f)变换矩阵，用来指定一个2D变换，相当于直接应用一个[a b c d e f]变换矩阵。就是基于水平方向（X轴）和垂直方向（Y轴）重新定位元素。
+
+```css
+transform: matrix(1,0,0,1,50,50);
+```
+
+* 原点 transform-origin设置中心点，默认情况之下，其中心点是居于元素X轴和Y轴的50%处。在没有重置transform-origin改变元素原点位置的情况下，CSS变形进行的旋转、位移、缩放，扭曲等操作都是以元素自己中心位置进行变形。
+
+```css
+transform-origin: left top;
+```
