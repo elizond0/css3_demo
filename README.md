@@ -273,7 +273,7 @@ transform: matrix(1,0,0,1,50,50);
 transform-origin: left top;
 ```
 
-### 12. CSS3动画-过渡
+### 12. CSS3过渡
 
 * transition可以通过鼠标的单击、获得焦点，被点击或对元素任何改变中触发，并平滑地以动画效果改变CSS的属性值。
 1. 在默认样式中声明元素的初始状态样式；
@@ -314,4 +314,97 @@ div:hover {
 
 ```css
 transition: background 0.8s ease-in 0.3,color 0.6s ease-out 0.3;
+```
+
+### 13. CSS3动画
+
+* Keyframes被称为关键帧，其类似于Flash中的关键帧。在CSS3中其主要以“@keyframes”开头，后面紧跟着是动画名称加上一对花括号“{…}”，括号中就是一些不同时间段样式规则。
+
+```css
+/* 可以由多个百分比构成 */
+/* 其中0%和100%还可以使用关键词from和to来代表 */
+@keyframes changecolor{
+  0% {
+    margin-left: 100px;
+    background:green;
+  }
+  40% {
+    margin-left:150px;
+    background:orange;
+  }
+  60% {
+    margin-left: 75px;
+    background: blue;
+  }
+  100% {
+    margin-left: 100px;
+    background: red;
+  }
+}
+```
+
+* animation-name属性主要是用来调用 @keyframes 定义好的动画。需要特别注意: animation-name 调用的动画名需要和“@keyframes”定义的动画名称完全一致（区分大小写），如果不一致将不具有任何动画效果。
+1. IDENT是由 @keyframes 创建的动画名
+2. none为默认值，当值为 none 时，将没有任何动画效果,这可以用于覆盖任何动画。
+3. 需要在 Chrome 和 Safari 上面的基础上加上-webkit-前缀，Firefox加上-moz-。
+
+```css
+/* animation-name: none | IDENT[,none|DENT]*; */
+animation-name: changecolor;
+```
+
+* animation-duration主要用来设置CSS3动画播放时间，其使用方法和transition-duration类似，是用来指定元素播放动画所持续的时间长，也就是完成从0%到100%一次动画所需时间(单位：S秒)。
+
+```css
+/* animation-duration: <time>[,<time>]* */
+animation-duration: 10s;
+```
+
+* animation-timing-function属性主要用来设置动画播放方式。主要让元素根据时间的推进来改变属性值的变换速率，动画的播放方式。
+
+```css
+/* 和transition中的transition-timing-function一样 */
+animation-timing-function:ease | linear | ease-in | ease-out | ease-in-out | cubic-bezier(<number>, <number>, <number>, <number>) [, ease | linear | ease-in | ease-out | ease-in-out | cubic-bezier(<number>, <number>, <number>, <number>)]*
+```
+
+* animation-delay属性用来定义动画开始播放的时间，用来触发动画播放的时间点。
+
+```css
+/* animation-delay:<time>[,<time>]* */
+animation-delay:2s;
+```
+
+* animation-iteration-count属性主要用来定义动画的播放次数。
+1. 通常为整数，但也可以使用带有小数的数字，其默认值为1，这意味着动画将从开始到结束只播放一次。
+2. 如果取值为infinite，动画将会无限次的播放。
+
+```css
+/* animation-iteration-count: infinite | <number> [, infinite | <number>]* */
+animation-iteration-count:5;
+```
+
+* animation-direction属性主要用来设置动画播放方向。
+1. normal是默认值，如果设置为normal时，动画的每次循环都是向前播放；
+2. alternate，动画播放在第偶数次向前播放，第奇数次向反方向播放。
+
+```css
+/* animation-direction:normal | alternate [, normal | alternate]* */
+animation-direction:alternate;
+```
+
+* animation-play-state属性主要用来控制元素动画的播放状态。
+
+```css
+/* running/paused 播放或暂停 */
+animation-play-state:paused;
+```
+
+* animation-fill-mode属性定义在动画开始之前和结束之后发生的操作。
+1. none:默认值，表示动画将按预期进行和结束，在动画完成其最后一帧时，动画会反转到初始帧处
+2. forwards:表示动画在结束后继续应用最后的关键帧的位置
+3. backwards:会在向元素应用动画样式时迅速应用动画的初始帧
+4. both:元素动画同时具有forwards和backwards效果
+
+```css
+animation-fill-mode:forwards;
 ```
