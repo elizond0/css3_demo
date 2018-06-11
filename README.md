@@ -272,3 +272,46 @@ transform: matrix(1,0,0,1,50,50);
 ```css
 transform-origin: left top;
 ```
+
+### 12. CSS3动画-过渡
+
+* transition可以通过鼠标的单击、获得焦点，被点击或对元素任何改变中触发，并平滑地以动画效果改变CSS的属性值。
+1. 在默认样式中声明元素的初始状态样式；
+2. 声明过渡元素最终状态样式，比如悬浮状态；
+3. 在默认样式中通过添加过渡函数，添加一些不同的样式。
+
+* transition过渡属性是一个复合属性，主要包括以下几个子属性：
+1. transition-property:指定过渡或动态模拟的CSS属性
+2. transition-duration:指定完成过渡所需的时间
+3. transition-timing-function:指定过渡函数
+4. transition-delay:指定开始出现的延迟时间
+
+```css
+div {
+  background-color:red;
+  /* transition-property为all时,表示所有具备中点値并且发生变化的属性 */
+  transition: background-color .5s ease .1s;
+}
+div:hover {
+  background-color: orange;
+}
+```
+
+* transition-property用来指定过渡动画的CSS属性名称，而这个过渡属性只有具备一个中点值的属性（需要产生动画的属性）才能具备过渡效果。
+
+* transition-duration属性主要用来设置一个属性过渡到另一个属性所需的时间，持续时间。
+
+* transition-timing-function属性指的是过渡的“缓动函数”。主要用来指定浏览器的过渡速度，以及过渡期间的操作进展情况，其中要包括以下几种函数：
+1. ease 由快到慢
+2. linear 匀速
+3. ease-in 加速,渐显
+4. ease-out 减速,渐隐
+5. ease-in-out 先加速再减速,渐显渐隐效果
+
+* transition-delay属性和transition-duration属性极其类似，不同的是transition-duration是用来设置过渡动画的持续时间，而transition-delay主要用来指定一个动画开始执行的时间，也就是说当改变元素属性值后多长时间开始执行。
+
+* 想改变两个或者多个css属性的transition效果时，把几个transition的声明串在一起，用逗号','隔开，然后可以有各自不同的延续时间和其时间的速率变换方式。第一个时间的值为 transition-duration，第二个为transition-delay。
+
+```css
+transition: background 0.8s ease-in 0.3,color 0.6s ease-out 0.3;
+```
