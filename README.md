@@ -408,3 +408,56 @@ animation-play-state:paused;
 ```css
 animation-fill-mode:forwards;
 ```
+
+### 14. 多栏布局
+
+* CSS3增加了一个多列布局模块（CSS Multi Column Layout Module），主要应用在文本的多列布局方面，这种布局在报纸和杂志上都使用了几十年了，但要在Web页面上实现这样的效果还是有相当大的难度。
+
+```css
+/* columns：<width> || <count> */
+/* <width> 定义多列中每列的宽度 || <count> 定义多列中的列数 */
+columns: 200px 2;
+```
+
+* column-width在定义元素列宽的时候，既可以单独使用，也可以和多列属性中其他属性配合使用。
+
+```css
+/* column-width: auto | <length> */
+/* <auto> 元素多列的列宽将由其他属性来决定，比如前面的示例就是由列数column-count来决定。 || <length> 使用固定值来设置元素列的宽度，其主要是由数值和长度单位组成，不过其值只能是正值，不能为负值。 */
+column-width: auto 200px;
+```
+
+* column-count属性主要用来给元素指定想要的列数和允许的最大列数。
+
+```css
+/* column-count：auto | <integer> */
+/* <count：auto> 表示元素只有一列，其主要依靠浏览器计算自动设置。 || <integer> 用来定义元素的列数，取值为大于0的整数，负值无效。 */
+column-count:4;
+```
+
+* column-gap主要用来设置列与列之间的间距。
+
+```css
+/* column-gap: normal || <length> */
+/* <normal> 默值为1em（如果字号是px，其默认值为font-size值） || <length> 此值用来设置列与列之间的距离，其可以使用px,em单位的任何整数值，但不能是负值。 */
+column-count: 3;
+column-gap: 2em;
+```
+
+* column-rule主要是用来定义列与列之间的边框宽度、边框样式和边框颜色，有点类似于常用的border属性。但column-rule是不占用任何空间位置的，在列与列之间改变其宽度不会改变任何列的位置。
+1. column-rule-width:主要用来定义列边框的宽度，其默认值为“medium”，column-rule-width属性接受任意浮点数，但不接收负值。但也像border-width属性一样，可以使用关键词：medium、thick和thin
+2. column-rule-style:主要用来定义列边框样式，其默认值为“none”。column-rule-style属性值与border-style属值相同，包括none、hidden、dotted、dashed、solid、double、groove、ridge、inset、outset。
+3. column-rule-color:主要用来定义列边框颜色，其默认值为前景色color的值，使用时相当于border-color。column-rule-color接受所有的颜色。如果不希望显示颜色，也可以将其设置为transparent(透明色)
+
+```css
+/* column-rule:<column-rule-width>|<column-rule-style>|<column-rule-color> */
+column-rule: 2px dotted green;
+```
+
+* column-span主要用来定义一个分列元素中的子元素能跨列多少。需要基中一段内容或一个标题不进行分列，也就是横跨所有列，此时column-span就可以轻松实现。
+
+```css
+/* column-span: none | all */
+/* none 默认值，表示不跨越任何列。 ||  all 表示的是元素跨越所有列，并定位在列的Ｚ轴之上。 */
+column-span:all;
+```
