@@ -228,13 +228,13 @@ p:first-of-type {
 
 ### 11. CSS3变形
 
-* 旋转 rotate()函数通过指定的角度参数使元素相对原点进行旋转。它主要在二维空间内进行操作，设置一个角度值，用来指定旋转的幅度。如果这个值为正值，元素相对原点中心顺时针旋转；如果这个值为负值，元素相对原点中心逆时针旋转。
+* 11.1 旋转 rotate()函数通过指定的角度参数使元素相对原点进行旋转。它主要在二维空间内进行操作，设置一个角度值，用来指定旋转的幅度。如果这个值为正值，元素相对原点中心顺时针旋转；如果这个值为负值，元素相对原点中心逆时针旋转。
 
 ```css
 transform: rotate(45deg);
 ```
 
-* 扭曲 skew()函数能够让元素倾斜显示。它可以将一个对象以其中心位置围绕着X轴和Y轴按照一定的角度倾斜。这与rotate()函数的旋转不同，rotate()函数只是旋转，而不会改变元素的形状。skew()函数不会旋转，而只会改变元素的形状。
+* 11.2 扭曲 skew()函数能够让元素倾斜显示。它可以将一个对象以其中心位置围绕着X轴和Y轴按照一定的角度倾斜。这与rotate()函数的旋转不同，rotate()函数只是旋转，而不会改变元素的形状。skew()函数不会旋转，而只会改变元素的形状。
 1. skew(x,y)使元素在水平和垂直方向同时扭曲（X轴和Y轴同时按一定的角度值进行扭曲变形）
 2. skewX(x)仅使元素在水平方向扭曲变形（X轴扭曲变形）
 3. skewY(y)仅使元素在垂直方向扭曲变形（Y轴扭曲变形）
@@ -243,7 +243,7 @@ transform: rotate(45deg);
 transform: skew(45deg);
 ```
 
-* 缩放 scale()函数 让元素根据中心原点对对象进行缩放。
+* 11.3 缩放 scale()函数 让元素根据中心原点对对象进行缩放。
 1. scale(X,Y)使元素水平方向和垂直方向同时缩放（X轴和Y轴同时缩放）
 2. scaleX(x)元素仅水平方向缩放（X轴缩放）
 3. scaleY(y)元素仅垂直方向缩放（Y轴缩放）
@@ -252,7 +252,7 @@ transform: skew(45deg);
 transform: scale(1.5);
 ```
 
-* 位移 translate()可以将元素向指定的方向移动，类似于position中的relative，可以把元素从原来的位置移动，而不影响在X、Y轴上的任何Web组件。
+* 11.4 位移 translate()可以将元素向指定的方向移动，类似于position中的relative，可以把元素从原来的位置移动，而不影响在X、Y轴上的任何Web组件。
 1. translate(x,y)水平方向和垂直方向同时移动（X轴和Y轴同时移动）
 2. translateX(x)仅水平方向移动（X轴移动）
 3. translateY(Y)仅垂直方向移动（Y轴移动）
@@ -261,13 +261,13 @@ transform: scale(1.5);
 transform: translate(50px,100px);
 ```
 
-* 矩阵 matrix()是一个含六个值的(a,b,c,d,e,f)变换矩阵，用来指定一个2D变换，相当于直接应用一个[a b c d e f]变换矩阵。就是基于水平方向（X轴）和垂直方向（Y轴）重新定位元素。
+* 11.5 矩阵 matrix()是一个含六个值的(a,b,c,d,e,f)变换矩阵，用来指定一个2D变换，相当于直接应用一个[a b c d e f]变换矩阵。就是基于水平方向（X轴）和垂直方向（Y轴）重新定位元素。
 
 ```css
 transform: matrix(1,0,0,1,50,50);
 ```
 
-* 原点 transform-origin设置中心点，默认情况之下，其中心点是居于元素X轴和Y轴的50%处。在没有重置transform-origin改变元素原点位置的情况下，CSS变形进行的旋转、位移、缩放，扭曲等操作都是以元素自己中心位置进行变形。
+* 11.6 原点 transform-origin设置中心点，默认情况之下，其中心点是居于元素X轴和Y轴的50%处。在没有重置transform-origin改变元素原点位置的情况下，CSS变形进行的旋转、位移、缩放，扭曲等操作都是以元素自己中心位置进行变形。
 
 ```css
 transform-origin: left top;
@@ -275,12 +275,14 @@ transform-origin: left top;
 
 ### 12. CSS3过渡
 
-* transition可以通过鼠标的单击、获得焦点，被点击或对元素任何改变中触发，并平滑地以动画效果改变CSS的属性值。
+* 12.1 transition可以通过鼠标的单击、获得焦点，被点击或对元素任何改变中触发，并平滑地以动画效果改变CSS的属性值。
+
 1. 在默认样式中声明元素的初始状态样式；
 2. 声明过渡元素最终状态样式，比如悬浮状态；
 3. 在默认样式中通过添加过渡函数，添加一些不同的样式。
 
-* transition过渡属性是一个复合属性，主要包括以下几个子属性：
+* 12.2 transition过渡属性是一个复合属性，主要包括以下几个子属性：
+
 1. transition-property:指定过渡或动态模拟的CSS属性
 2. transition-duration:指定完成过渡所需的时间
 3. transition-timing-function:指定过渡函数
@@ -297,20 +299,20 @@ div:hover {
 }
 ```
 
-* transition-property用来指定过渡动画的CSS属性名称，而这个过渡属性只有具备一个中点值的属性（需要产生动画的属性）才能具备过渡效果。
+* 12.3 transition-property用来指定过渡动画的CSS属性名称，而这个过渡属性只有具备一个中点值的属性（需要产生动画的属性）才能具备过渡效果。
 
-* transition-duration属性主要用来设置一个属性过渡到另一个属性所需的时间，持续时间。
+* 12.4 transition-duration属性主要用来设置一个属性过渡到另一个属性所需的时间，持续时间。
 
-* transition-timing-function属性指的是过渡的“缓动函数”。主要用来指定浏览器的过渡速度，以及过渡期间的操作进展情况，其中要包括以下几种函数：
+* 12.5 transition-timing-function属性指的是过渡的“缓动函数”。主要用来指定浏览器的过渡速度，以及过渡期间的操作进展情况，其中要包括以下几种函数：
 1. ease 由快到慢
 2. linear 匀速
 3. ease-in 加速,渐显
 4. ease-out 减速,渐隐
 5. ease-in-out 先加速再减速,渐显渐隐效果
 
-* transition-delay属性和transition-duration属性极其类似，不同的是transition-duration是用来设置过渡动画的持续时间，而transition-delay主要用来指定一个动画开始执行的时间，也就是说当改变元素属性值后多长时间开始执行。
+* 12.6 transition-delay属性和transition-duration属性极其类似，不同的是transition-duration是用来设置过渡动画的持续时间，而transition-delay主要用来指定一个动画开始执行的时间，也就是说当改变元素属性值后多长时间开始执行。
 
-* 想改变两个或者多个css属性的transition效果时，把几个transition的声明串在一起，用逗号','隔开，然后可以有各自不同的延续时间和其时间的速率变换方式。第一个时间的值为 transition-duration，第二个为transition-delay。
+* 12.7 想改变两个或者多个css属性的transition效果时，把几个transition的声明串在一起，用逗号','隔开，然后可以有各自不同的延续时间和其时间的速率变换方式。第一个时间的值为 transition-duration，第二个为transition-delay。
 
 ```css
 transition: background 0.8s ease-in 0.3,color 0.6s ease-out 0.3;
@@ -318,7 +320,7 @@ transition: background 0.8s ease-in 0.3,color 0.6s ease-out 0.3;
 
 ### 13. CSS3动画
 
-* Keyframes被称为关键帧，其类似于Flash中的关键帧。在CSS3中其主要以“@keyframes”开头，后面紧跟着是动画名称加上一对花括号“{…}”，括号中就是一些不同时间段样式规则。
+* 13.1 Keyframes被称为关键帧，其类似于Flash中的关键帧。在CSS3中其主要以“@keyframes”开头，后面紧跟着是动画名称加上一对花括号“{…}”，括号中就是一些不同时间段样式规则。
 
 ```css
 /* 可以由多个百分比构成 */
@@ -343,7 +345,7 @@ transition: background 0.8s ease-in 0.3,color 0.6s ease-out 0.3;
 }
 ```
 
-* animation-name属性主要是用来调用 @keyframes 定义好的动画。需要特别注意: animation-name 调用的动画名需要和“@keyframes”定义的动画名称完全一致（区分大小写），如果不一致将不具有任何动画效果。
+* 13.2 animation-name属性主要是用来调用 @keyframes 定义好的动画。需要特别注意: animation-name 调用的动画名需要和“@keyframes”定义的动画名称完全一致（区分大小写），如果不一致将不具有任何动画效果。
 1. IDENT是由 @keyframes 创建的动画名
 2. none为默认值，当值为 none 时，将没有任何动画效果,这可以用于覆盖任何动画。
 3. 需要在 Chrome 和 Safari 上面的基础上加上-webkit-前缀，Firefox加上-moz-。
@@ -353,28 +355,29 @@ transition: background 0.8s ease-in 0.3,color 0.6s ease-out 0.3;
 animation-name: changecolor;
 ```
 
-* animation-duration主要用来设置CSS3动画播放时间，其使用方法和transition-duration类似，是用来指定元素播放动画所持续的时间长，也就是完成从0%到100%一次动画所需时间(单位：S秒)。
+* 13.3 animation-duration主要用来设置CSS3动画播放时间，其使用方法和transition-duration类似，是用来指定元素播放动画所持续的时间长，也就是完成从0%到100%一次动画所需时间(单位：S秒)。
 
 ```css
 /* animation-duration: <time>[,<time>]* */
 animation-duration: 10s;
 ```
 
-* animation-timing-function属性主要用来设置动画播放方式。主要让元素根据时间的推进来改变属性值的变换速率，动画的播放方式。
+* 13.4 animation-timing-function属性主要用来设置动画播放方式。主要让元素根据时间的推进来改变属性值的变换速率，动画的播放方式。
 
 ```css
 /* 和transition中的transition-timing-function一样 */
 animation-timing-function:ease | linear | ease-in | ease-out | ease-in-out | cubic-bezier(<number>, <number>, <number>, <number>) [, ease | linear | ease-in | ease-out | ease-in-out | cubic-bezier(<number>, <number>, <number>, <number>)]*
 ```
 
-* animation-delay属性用来定义动画开始播放的时间，用来触发动画播放的时间点。
+* 13.5 animation-delay属性用来定义动画开始播放的时间，用来触发动画播放的时间点。
 
 ```css
 /* animation-delay:<time>[,<time>]* */
 animation-delay:2s;
 ```
 
-* animation-iteration-count属性主要用来定义动画的播放次数。
+* 13.6 animation-iteration-count属性主要用来定义动画的播放次数。
+
 1. 通常为整数，但也可以使用带有小数的数字，其默认值为1，这意味着动画将从开始到结束只播放一次。
 2. 如果取值为infinite，动画将会无限次的播放。
 
@@ -383,7 +386,8 @@ animation-delay:2s;
 animation-iteration-count:5;
 ```
 
-* animation-direction属性主要用来设置动画播放方向。
+* 13.7 animation-direction属性主要用来设置动画播放方向。
+
 1. normal是默认值，如果设置为normal时，动画的每次循环都是向前播放；
 2. alternate，动画播放在第偶数次向前播放，第奇数次向反方向播放。
 
@@ -392,14 +396,15 @@ animation-iteration-count:5;
 animation-direction:alternate;
 ```
 
-* animation-play-state属性主要用来控制元素动画的播放状态。
+* 13.8 animation-play-state属性主要用来控制元素动画的播放状态。
 
 ```css
 /* running/paused 播放或暂停 */
 animation-play-state:paused;
 ```
 
-* animation-fill-mode属性定义在动画开始之前和结束之后发生的操作。
+* 13.9 animation-fill-mode属性定义在动画开始之前和结束之后发生的操作。
+
 1. none:默认值，表示动画将按预期进行和结束，在动画完成其最后一帧时，动画会反转到初始帧处
 2. forwards:表示动画在结束后继续应用最后的关键帧的位置
 3. backwards:会在向元素应用动画样式时迅速应用动画的初始帧
@@ -411,7 +416,7 @@ animation-fill-mode:forwards;
 
 ### 14. 多栏布局
 
-* CSS3增加了一个多列布局模块（CSS Multi Column Layout Module），主要应用在文本的多列布局方面，这种布局在报纸和杂志上都使用了几十年了，但要在Web页面上实现这样的效果还是有相当大的难度。
+* 14.1 CSS3增加了一个多列布局模块（CSS Multi Column Layout Module），主要应用在文本的多列布局方面，这种布局在报纸和杂志上都使用了几十年了，但要在Web页面上实现这样的效果还是有相当大的难度。
 
 ```css
 /* columns：<width> || <count> */
@@ -419,7 +424,7 @@ animation-fill-mode:forwards;
 columns: 200px 2;
 ```
 
-* column-width在定义元素列宽的时候，既可以单独使用，也可以和多列属性中其他属性配合使用。
+* 14.2 column-width在定义元素列宽的时候，既可以单独使用，也可以和多列属性中其他属性配合使用。
 
 ```css
 /* column-width: auto | <length> */
@@ -427,7 +432,7 @@ columns: 200px 2;
 column-width: auto 200px;
 ```
 
-* column-count属性主要用来给元素指定想要的列数和允许的最大列数。
+* 14.3 column-count属性主要用来给元素指定想要的列数和允许的最大列数。
 
 ```css
 /* column-count：auto | <integer> */
@@ -435,7 +440,7 @@ column-width: auto 200px;
 column-count:4;
 ```
 
-* column-gap主要用来设置列与列之间的间距。
+* 14.4 column-gap主要用来设置列与列之间的间距。
 
 ```css
 /* column-gap: normal || <length> */
@@ -444,7 +449,7 @@ column-count: 3;
 column-gap: 2em;
 ```
 
-* column-rule主要是用来定义列与列之间的边框宽度、边框样式和边框颜色，有点类似于常用的border属性。但column-rule是不占用任何空间位置的，在列与列之间改变其宽度不会改变任何列的位置。
+* 14.5 column-rule主要是用来定义列与列之间的边框宽度、边框样式和边框颜色，有点类似于常用的border属性。但column-rule是不占用任何空间位置的，在列与列之间改变其宽度不会改变任何列的位置。
 1. column-rule-width:主要用来定义列边框的宽度，其默认值为“medium”，column-rule-width属性接受任意浮点数，但不接收负值。但也像border-width属性一样，可以使用关键词：medium、thick和thin
 2. column-rule-style:主要用来定义列边框样式，其默认值为“none”。column-rule-style属性值与border-style属值相同，包括none、hidden、dotted、dashed、solid、double、groove、ridge、inset、outset。
 3. column-rule-color:主要用来定义列边框颜色，其默认值为前景色color的值，使用时相当于border-color。column-rule-color接受所有的颜色。如果不希望显示颜色，也可以将其设置为transparent(透明色)
@@ -454,7 +459,7 @@ column-gap: 2em;
 column-rule: 2px dotted green;
 ```
 
-* column-span主要用来定义一个分列元素中的子元素能跨列多少。需要基中一段内容或一个标题不进行分列，也就是横跨所有列，此时column-span就可以轻松实现。
+* 14.6 column-span主要用来定义一个分列元素中的子元素能跨列多少。需要基中一段内容或一个标题不进行分列，也就是横跨所有列，此时column-span就可以轻松实现。
 
 ```css
 /* column-span: none | all */
@@ -488,3 +493,15 @@ column-span:all;
 1. content-box : 默认值，其让元素维持W3C的标准盒模型，也就是说元素的宽度和高度（width/height）等于元素边框宽度（border）加上元素内距（padding）加上元素内容宽度或高度（content width/ height），也就是element width/height = border + padding + content width / height
 2. border-box : 重新定义CSS2.1中盒模型组成的模式，让元素维持IE传统的盒模型（IE6以下版本和IE6-7怪异模式），也就是说元素的宽度或高度等于元素内容的宽度或高度。从上面盒模型介绍可知，这里的内容宽度或高度包含了元素的border、padding、内容的宽度或高度（此处的内容宽度或高度＝盒子的宽度或高度—边框—内距）。
 3. inherit : 使元素继承父元素的盒模型模式
+
+### 16. Flex弹性布局
+
+* Flexbox布局常用于设计比较复杂的页面，可以轻松的实现屏幕和浏览器窗口大小发生变化时保持元素的相对位置和大小不变，同时减少了依赖于浮动布局实现元素位置的定义以及重置元素的大小。Flexbox布局功能主要具有以下几点：
+1. 屏幕和浏览器窗口大小发生改变也可以灵活调整布局；
+2. 可以指定伸缩项目沿着主轴或侧轴按比例分配额外空间（伸缩容器额外空间），从而调整伸缩项目的大小；
+3. 可以指定伸缩项目沿着主轴或侧轴将伸缩容器额外空间，分配到伸缩项目之前、之后或之间；
+4. 可以指定如何将垂直于元素布局轴的额外空间分布到该元素的周围；
+5. 可以控制元素在页面上的布局方向；
+6. 可以按照不同于文档对象模型（DOM）所指定排序方式对屏幕上的元素重新排序。也就是说可以在浏览器渲染中不按照文档流先后顺序重排伸缩项目顺序。
+
+* 具体使用[Flex_learningPath](https://github.com/elizond0/Flex_learningPath)
