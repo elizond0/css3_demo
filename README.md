@@ -461,3 +461,30 @@ column-rule: 2px dotted green;
 /* none 默认值，表示不跨越任何列。 ||  all 表示的是元素跨越所有列，并定位在列的Ｚ轴之上。 */
 column-span:all;
 ```
+
+### 15. css3盒子模型
+
+#### 15.1 W3C标准盒
+
+* 外盒尺寸计算（元素空间尺寸）
+1. element空间高度＝内容高度＋内距＋边框＋外距
+2. element空间宽度＝内容宽度＋内距＋边框＋外距
+
+* 内盒尺寸计算（元素大小）
+1. element高度＝内容高度＋内距＋边框（height为内容高度）
+2. element宽度＝内容宽度＋内距＋边框（width为内容宽度）
+
+#### 15.2 IE传统下盒模型（IE6以下，不包含IE6版本或”QuirksMode下IE5.5+”）--外盒尺寸计算（元素空间尺寸）
+
+* 外盒尺寸计算（元素空间尺寸）
+1. element空间高度＝内容高度＋外距（height包含了元素内容宽度、边框、内距）
+2. element宽间宽度＝内容宽度＋外距（width包含了元素内容宽度、边框、内距）
+* 内盒尺寸计算（元素大小）
+1. element高度＝内容高度（height包含了元素内容宽度、边框、内距）
+2. element宽度＝内容宽度（width包含了元素内容宽度、边框、内距）
+
+#### 15.3 box-sizing属性，能够事先定义盒模型的尺寸解析方式 (box-sizing: content-box | border-box | inherit)
+
+1. content-box : 默认值，其让元素维持W3C的标准盒模型，也就是说元素的宽度和高度（width/height）等于元素边框宽度（border）加上元素内距（padding）加上元素内容宽度或高度（content width/ height），也就是element width/height = border + padding + content width / height
+2. border-box : 重新定义CSS2.1中盒模型组成的模式，让元素维持IE传统的盒模型（IE6以下版本和IE6-7怪异模式），也就是说元素的宽度或高度等于元素内容的宽度或高度。从上面盒模型介绍可知，这里的内容宽度或高度包含了元素的border、padding、内容的宽度或高度（此处的内容宽度或高度＝盒子的宽度或高度—边框—内距）。
+3. inherit : 使元素继承父元素的盒模型模式
