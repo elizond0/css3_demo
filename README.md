@@ -506,7 +506,7 @@ column-span:all;
 
 * 具体使用[Flex_learningPath](https://github.com/elizond0/Flex_learningPath)
 
-### 17. Media Queries-媒体查询
+### 17. Media Queries-媒体类型
 
 * Media Queries是CSS3新增加的一个模块功能，通过CSS3来查询媒体，然后调用对应的样式。其实这个功能在CSS2.1中就有出现过，只不过那个时候此功能并不强大，我们最常见的就是给打印设备添加打印样式。W3C总共列出了10种媒体类型，其中Screen、All和Print为最常见的三种媒体类型：
 1. All - 所有设备
@@ -519,3 +519,84 @@ column-span:all;
 8. Speech - 语音或音频合成器
 9. Tv - 电视机类型设备
 10. Tty - 使用固定密度字母栅格的媒介，比如电传打字机和终端
+
+#### 17.1 媒体类型的引用方法也有多种，常见的有：link标签、@import和CSS3新增的@media几种：
+
+* link方法:link标签引用样式的时候，通过link标签中的media属性来指定不同的媒体类型。
+
+```html
+<link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="print.css" media="print" />
+```
+
+* @import方法:可以引用样式文件，同样也可以用来引用媒体类型。@import引入媒体类型主要有两种方式，一种是在样式中通过@import调用另一个样式文件；另一种方法是在head标签中的style中引入，但这种使用方法在IE6~7都不被支持
+
+```css
+@importurl(reset.css) screen;
+@importurl(print.css) print;
+```
+
+* @media是CSS3中新引进的一个特性，被称为媒体查询。@media引入媒体类型和@import有点类似也具有两方式。
+
+1.在样式文件中引用媒体类型：  
+
+```css
+@media screen {
+   选择器{/*你的样式代码写在这里…*/}
+}
+```
+
+2.使用@media引入媒体类型的方式是在head标签中的style中引用。  
+
+```html
+<head>
+<style type="text/css">
+    @media screen{
+    选择器{/*你的样式代码写在这里…*/}
+}
+</style>
+</head>
+```
+
+#### 17.2 Media Queries使用方法
+
+* 使用Media Queries必须要使用“@media”开头，然后指定媒体类型（也可以称为设备类型），随后是指定媒体特性（也可以称之为设备特性）。媒体特性的书写方式和样式的书写方式非常相似，主要分为两个部分，第一个部分指的是媒体特性，第二部分为媒体特性所指定的值，而且这两个部分之间使用冒号分隔。
+
+```css
+/* @media 媒体类型 and （媒体特性）{你的样式} */
+@media screen and (max-width:480px){
+ .ads {
+   display:none;
+  }
+}
+```
+
+* 17.2.1 最大宽度max-width指媒体类型小于或等于指定的宽度时，样式生效。最小宽度min-width指的是媒体类型大于或等于指定宽度时，样式生效。
+
+* 17.2.2 Media Queries可以使用关键词"and"将多个媒体特性结合在一起。也就是说，一个Media Query中可以包含0到多个表达式，表达式又可以包含0到多个关键字，以及一种媒体类型。
+
+```css
+@media screen and (min-width:600px) and (max-width:900px){
+  body {background-color:#f5f5f5;}
+}
+```
+
+* 17.2.3 设备屏幕的输出宽度Device Width(在智能设备上，例如iPhone、iPad等)
+
+```html
+<link rel="stylesheet" media="screen and (max-device-width:480px)" href="iphone.css" />
+```
+
+* 17.2.4 not关键词-用来排除某种制定的媒体类型
+
+```css
+@media not print and (max-width: 1200px){
+  /* 样式代码 */
+}
+```
+
+* 17.2.5 only关键词-指定某种特定的媒体类型，可以用来排除不支持媒体查询的浏览器。其实only很多时候是用来对那些不支持Media Query但却支持Media Type的设备隐藏样式表的。其主要有：支持媒体特性的设备，正常调用样式，此时就当only不存在；表示不支持媒体特性但又支持媒体类型的设备，这样就会不读样式，因为其先会读取only而不是screen；另外不支持Media Queries的浏览器，不论是否支持only，样式都不会被采用。
+
+```html
+<linkrel="stylesheet" media="only screen and (max-device-width:240px)" href="android240.css" />
+```
