@@ -505,3 +505,17 @@ column-span:all;
 6. 可以按照不同于文档对象模型（DOM）所指定排序方式对屏幕上的元素重新排序。也就是说可以在浏览器渲染中不按照文档流先后顺序重排伸缩项目顺序。
 
 * 具体使用[Flex_learningPath](https://github.com/elizond0/Flex_learningPath)
+
+### 17. Media Queries-媒体查询
+
+* Media Queries是CSS3新增加的一个模块功能，通过CSS3来查询媒体，然后调用对应的样式。其实这个功能在CSS2.1中就有出现过，只不过那个时候此功能并不强大，我们最常见的就是给打印设备添加打印样式。W3C总共列出了10种媒体类型，其中Screen、All和Print为最常见的三种媒体类型：
+1. All - 所有设备
+2. Braille - 盲人用点字法触觉回馈设备
+3. Embossed - 盲文打印机
+4. Handheld - 便携设备
+5. Print - 打印用纸或打印预览视图
+6. Projection - 各种投影设备
+7. Screen - 电脑显示器
+8. Speech - 语音或音频合成器
+9. Tv - 电视机类型设备
+10. Tty - 使用固定密度字母栅格的媒介，比如电传打字机和终端
