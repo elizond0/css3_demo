@@ -710,6 +710,8 @@ img[data-src-600px]{
 
 ### 19. 自由缩放属性resize
 
+* 兼容性：Chrome 4；Firefox 4；Safari 4；Opera 15；Android Chrome 66；IOS Safari不兼容；IE不兼容；
+
 * resize允许用户通过拖动的方式来修改元素的尺寸来改变元素的大小，其主要目的是增强用户体验，部分标签需要overflow属性进行配合。resize: none | both | horizontal | vertical | inherit
 1. none : 用户不能拖动元素修改尺寸大小。
 2. both : 用户可以拖动元素，同时修改元素的宽度和高度。
@@ -725,5 +727,20 @@ div {
   -ms-resize: horizontal;
   resize: horizontal;
   overflow:hidden;
+}
+```
+
+### 20. 外轮廓属性outline
+
+* 外轮廓outline在页面中呈现的效果和边框border呈现的效果和语法极其相似，但和元素边框border完全不同，外轮廓线不占用网页布局空间，不一定是矩形，外轮廓是属于一种动态样式，只有元素获取到焦点或者被激活时呈现。outline: ［outline-color］ || [outline-style] || [outline-width] || [outline-offset] || inherit
+1. outline-color : 定义轮廓线的颜色，属性值为CSS中定义的颜色值。在实际应用中，可以将此参数省略，省略时此参数的默认值为黑色。
+2. outline-style : 定义轮廓线的样式，属性为CSS中定义线的样式。在实际应用中，可以将此参数省略，省略时此参数的默认值为none，省略后不对该轮廓线进行任何绘制。
+3. outline-width : 定义轮廓线的宽度，属性值可以为一个宽度值。在实际应用中，可以将此参数省略，省略时此参数的默认值为medium，表示绘制中等宽度的轮廓线。
+4. outline-offset : 定义轮廓边框的偏移位置的数值，此值可以取负数值。当此参数的值为正数值，表示轮廓边框向外偏离多少个像素；当此参数的值为负数值，表示轮廓边框向内偏移多少个像素。
+5. inherit : 元素继承父元素的outline效果。
+
+```css
+div {
+  outline:#00FF00 dotted thick;
 }
 ```
