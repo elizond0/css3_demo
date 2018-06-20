@@ -677,9 +677,53 @@ img[data-src-600px]{
 
 ```html
 <script src='respond.js'></script>
-
 <!--[if lt IE10]>
 <link rel="stylesheet" type="text/css" href="ie10-and-down.css">
 <![endif]-->
+```
 
+#### 18.4 不同设备的分辨率设置
+
+* Pad横屏
+
+```css
+@media screen and (max-device-width: 1024px) and (orientation: landscape) {
+  /* 样式 */
+}
+```
+
+* Pad竖屏
+
+```css
+@media screen and (max-device-width: 768px) and (orientation: portrait) {
+  /* 样式 */
+}
+```
+
+* iPhone 和 Smartphones
+
+```css
+@media screen and (min-device-width: 320px) and (min-device-width: 480px) {
+  /* 样式 */
+}  
+```
+
+### 19. 自由缩放属性resize
+
+* resize允许用户通过拖动的方式来修改元素的尺寸来改变元素的大小，其主要目的是增强用户体验，部分标签需要overflow属性进行配合。resize: none | both | horizontal | vertical | inherit
+1. none : 用户不能拖动元素修改尺寸大小。
+2. both : 用户可以拖动元素，同时修改元素的宽度和高度。
+3. horizontal : 用户可以拖动元素，仅可以修改元素的宽度，但不能修改元素的高度。
+4. vertical : 用户可以拖动元素，仅可以修改元素的高度，但不能修改元素的宽度。
+5. inherit : 继承父元素的resize属性值。
+
+```css
+div {
+  -webkit-resize: horizontal;
+  -moz-resize: horizontal;
+  -o-resize: horizontal;
+  -ms-resize: horizontal;
+  resize: horizontal;
+  overflow:hidden;
+}
 ```
