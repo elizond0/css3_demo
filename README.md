@@ -600,3 +600,86 @@ column-span:all;
 ```html
 <linkrel="stylesheet" media="only screen and (max-device-width:240px)" href="android240.css" />
 ```
+
+### 18. Responsive设计
+
+* Responsive设计简单的称为RWD，是精心提供各种设备都能浏览网页的一种设计方法，RWD能让你的网页在不同的设备中展现不同的设计风格。RWD不是流体布局，也不是网格布局，而是一种独特的网页设计方法。
+
+#### 18.1 响应式设计要考虑元素布局的秩序，而且还需要做到“有求必应”，那就需要满足以下三个条件：网站必须建立灵活的网格基础；引用到网站的图片必须是可伸缩的；不同的显示风格，需要在Media Queries上写不同的样式。
+
+* 流体网格 : 是一个简单的网格系统，参考了流体设计中的网格系统，将每个网格格子使用百分比单位来控制网格大小。这种网格系统最大的好处是让网格大小随时根据屏幕尺寸大小做出相对应的比例缩放。
+
+* 弹性图片 : 是不给图片设置固定尺寸，而是根据流体网格进行缩放，用于适应各种网格的尺寸。而实现方法是比较简单，一句代码就能搞定的事情。img {max-width:100%;} 这句代码在IE8浏览器存在一个严重的问题，图片会失踪。 因为Media Queries并不能改变图片“src”的属性值，使用background-image给元素使用背景图片，显示/隐藏父元素，给父元素使用不同的图片，然后通过Media Queries来控制这些图片显示或隐藏。
+
+```html
+<!-- 断点解决图片自适应的例子 -->
+<img src="image.jpg" data-src-600px="image-600px.jpg" data-src-800px="image-800px.jpg" alt="" />
+```
+
+```css
+/* 对应的CSS代码 */
+@media (min-device-width:600px){
+img[data-src-600px]{
+  content: attr(data-src-600px,url);
+  }
+}
+@media (min-device-width:800px){
+  img[data-src-800px] {
+  content:attr(data-src-800px,url);
+  }
+}
+```
+
+* 媒体查询 : CSS3中得到了强大的扩展。使用这个属性可以让设计根据用户终端设备适配对应的样式。这也是响应式设计中最为关键的。可以说Responsive设计离开了Medial Queries就失去了他生存的意义。简单的说媒体查询可以根据设备的尺寸，查询出适配的样式。Responsive设计最关注的就是：根据用户的使用设备的当前宽度，你的Web页面将加载一个备用的样式，实现特定的页面风格。
+
+* 屏幕分辨率 : 简单点说就是用户显示器的分辨率，深一点说，屏幕分辨率指的是用户使用的设备浏览您的Web页面时的显示屏幕的分辨率，比如说智能手机浏览器、移动电脑浏览器、平板电脑浏览器和桌面浏览器的分辨率。Responsive设计利用Media Queries属性针对浏览器使用的分辨率来适配对应的CSS样式。因此屏幕分辨率在Responsive设计中是一个很重要的东西，因为只有知道Web页面要在哪种分辨率下显示何种效果，才能调用对应的样式。
+
+* 主要断点 : 主要断点，在Web开发中是一个新词，但对于Responsive设计中是一个很重要的一部分。简单的描述就是，设备宽度的临界点。在Media Queries中，其中媒体特性“min-width”和“max-width”对应的属性值就是响应式设计中的断点值。使用主要断点和次要断点，创建媒体查询的条件。而每个断点会对应调用一个样式文件（或者样式代码）
+
+#### 18.2 Responsive布局技巧
+
+* 常用技巧
+1. 使用HTML5 Doctype和相关指南；
+2. 重置好你的样式（reset.css）；
+3. 一个简单的有语义的核心布局；
+4. 给重要的网页元素使用简单的技巧，比如导航菜单之类元素。
+
+* 应该避免的点
+1. 尽量少用无关紧要的div；
+2. 不要使用内联元素（inline）；
+3. 尽量少用JS或flash；
+4. 丢弃没用的绝对定位和浮动样式；
+5. 摒弃任何冗余结构和不使用100%设置。
+
+* 保持HTML简单干净，而且在页面布局中的关键部分（元素）不要过分的依赖现代技巧来实现，比如说CSS3特效或者JS脚本。快速测试HTML结构简单干净的方法，首先禁掉页面中所有的样式（以及与样式相关的信息），在浏览器中打开，如果内容排列有序，方便阅读，那么结构不会差到哪里去。
+
+#### 18.3 meta标签
+
+* meta标签内的content属性值:
+1. width : 可视区域的宽度，值可以是一个具体数字或关键词device-width
+2. height : 可视区域的高度，值可以是一个具体数字或关键词device-height
+3. initial : 页面首次被显示时可视区域的缩放级别，取值为1.0时将使页面按实际尺寸显示，无任何缩放
+4. minimun-scale : 可视区域的最小缩放级别，表示用户可以将页面缩小的程度，取值为1.0时将禁止缩小至实际尺寸以下
+5. maximun-scale : 可视区域的最大缩放级别，表示用户可以将页面放大的程度，取值为1.0时将禁止放大至实际尺寸以上
+6. user-scalable : 指定用户是否可以对页面进行缩放，设置为yes将允许缩放，no为禁止
+
+```html
+<meta name=”viewport” content=”” />
+```
+
+* 在实际项目中，为了让Responsive设计在智能设备中能显示正常，也就是浏览Web页面适应屏幕的大小，显示在屏幕上，可以通过这个可视区域的meta标签进行重置，告诉使用设备的宽度为视图的宽度，也就是说禁止其默认的自适应页面的效果。
+
+```html
+<meta name=”viewport” content=”width=device-width,initial-scale=1.0” />
+```
+
+* 由于Responsive设计是结合CSS3的Media Queries属性，才能尽显Responsive设计风格，但在IE6-8中完全是不支持CSS3 Media，可以使用html中条件注释的语法或者respond.js适应需求。
+
+```html
+<script src='respond.js'></script>
+
+<!--[if lt IE10]>
+<link rel="stylesheet" type="text/css" href="ie10-and-down.css">
+<![endif]-->
+
+```
