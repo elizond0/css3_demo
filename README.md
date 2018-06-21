@@ -744,3 +744,21 @@ div {
   outline:#00FF00 dotted thick;
 }
 ```
+
+### 21. 生成内容content
+
+* 通过CSS3的伪类“:before”，“:after”和CSS3的伪元素“::before”、“::after”来实现，其关键是依靠CSS3中的“content”属性来实现插入内容，不过这个属性对于img和input元素不起作用。
+1. none : 不生成任何内容
+2. string : 插入字符串
+3. attr : 插入标签属性值
+4. url : 使用指定的绝对或相对地址插入一个外部资源（图像，声频，视频或浏览器支持的其他任何资源）
+
+```css
+a:after{
+  content: " (" attr(href) ")"
+}
+```
+
+```html
+<a href="http://www.w3school.com.cn">W3School</a> contains free tutorials and references.</p>
+```
