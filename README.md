@@ -148,8 +148,6 @@ background-size: auto | <长度值px> | <百分比%> | cover拉伸填充 | conta
 background ： [background-color] | [background-image] | [background-position] | [background-size] | [background-repeat] | [background-attachment] | [background-clip] | [background-origin]
 ```
 
-* css3制作导航菜单: @/demo/nav-menu.html
-
 ### 8. CSS3选择器-属性选择器
 
 * 属性选择器,css3在css2的基础上扩展了通配符,类似于正则中的 ^$*
@@ -762,3 +760,11 @@ a:after{
 ```html
 <a href="http://www.w3school.com.cn">W3School</a> contains free tutorials and references.</p>
 ```
+
+### 22. CSSdemo
+
+* css3制作2D旋转导航菜单: @/demo/transition-nav-menu.html
+
+* CSS3制作3d翻转导航菜单 @/demo/3D-rotate-nav.html
+
+* CSS3制作3d旋转展示区域 @/demo/3D-rotate-display-area.html
