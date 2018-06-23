@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<title></title>
+	<style>
+		html,body{
+			height:100%;
+			margin:0;
+			padding:0;
+		}
+		.container {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+			height:100%;
+			width:100%;
+
+		}
+		.container div{
+			height:200px;
+			width:200px;
+			margin:0 50px;
+			background-color: aquamarine;
+			border:10px solid red;
+		}
+		
+		/* 方法1 outline属性制作两层边框 */
+		.box1{
+			outline:10px dotted green;
+		}
+		/* 方法2 box-shadow属性制作多层边框 */
+		.box2{
+			box-shadow:0 0 0 10px green,0 0 0 20px yellow,0 0 0 30px darkblue;
+		}
+		/* 方法3 box-shadow属性制作内边框，由于outline和box-shadow都不影响布局，所以使用inset可以避免调整 */
+		.box3{
+			box-shadow:0 0 0 10px green inset,0 0 0 20px yellow inset,0 0 0 30px darkblue inset;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<div class="box1"></div>
+		<div class="box2"></div>
+		<div class="box3"></div>
+	</div>
+</body>
+
+</html>
