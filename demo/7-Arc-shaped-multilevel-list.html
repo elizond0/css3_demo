@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<title></title>
+	<style>
+		/* 第二步，基本样式&&Reset */
+
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		li {
+			list-style: none
+		}
+
+		#dv_nav {
+			padding-top: 30px;
+			width: 500px;
+			height: 540px;
+			text-align: right;
+			background-color: gray;
+			font-size: 12px;
+			line-height: 18px;
+		}
+
+		#dv_nav h2 {
+			display: none;
+		}
+		
+		#ul_nav ul{
+			display: none;
+		}
+
+		#ul_nav li {
+			padding-bottom: 24px;
+			/* padding避免挤成一堆 */
+		}
+
+		#ul_nav li li {
+			padding-bottom: 0px;
+			/* 清除上一条规则对二级菜单的影响 */
+		}
+
+		#ul_nav h3 a,
+		#ul_nav h3 span {
+			font-size: 16px;
+			font-weight: 700;
+			color: #aaa;
+		}
+
+		#ul_nav li li a {
+			color: #999;
+		}
+
+		#ul_nav h3 {
+			background: #555;
+		}
+
+		#ul_nav li li {
+			background: #222;
+		}
+
+		/* 第四步，占位符样式 */
+
+		#dv_placeholder div {
+			background: yellow;
+			opacity: 0.2;
+			_margin-left: -3px;
+			/** 应付3px bug @ IE6 **/
+			float: right;
+			_display: inline;
+			clear: right;
+			font: 1px/1 serif;
+			/** 清除块默认高度 @ IE6 **/
+		}
+
+		#dv_placeholder .n1 {
+			width: 185px;
+			height: 10px;
+		}
+
+		#dv_placeholder .n2 {
+			width: 195px;
+			height: 10px;
+		}
+
+		#dv_placeholder .n3 {
+			width: 200px;
+			height: 10px;
+		}
+
+		#dv_placeholder .n4 {
+			width: 205px;
+			height: 10px;
+		}
+
+		#dv_placeholder .n5 {
+			width: 210px;
+			height: 10px;
+		}
+
+		#dv_placeholder .n6 {
+			width: 215px;
+			height: 10px;
+		}
+
+		#dv_placeholder .n7 {
+			width: 220px;
+			height: 10px;
+		}
+
+		#dv_placeholder .n8 {
+			width: 225px;
+			height: 10px;
+		}
+
+		#dv_placeholder .n9 {
+			width: 230px;
+			height: 10px;
+		}
+
+		#dv_placeholder .n10 {
+			width: 235px;
+			height: 10px;
+		}
+
+		#dv_placeholder .n11 {
+			width: 240px;
+			height: 10px;
+		}
+
+		#dv_placeholder .n12 {
+			width: 245px;
+			height: 15px;
+		}
+
+		#dv_placeholder .n13 {
+			width: 250px;
+			height: 10px;
+		}
+
+		#dv_placeholder .n14 {
+			width: 255px;
+			height: 15px;
+		}
+
+		#dv_placeholder .n15 {
+			width: 260px;
+			height: 10px;
+		}
+
+		#dv_placeholder .n16 {
+			width: 265px;
+			height: 15px;
+		}
+
+		#dv_placeholder .n17 {
+			width: 270px;
+			height: 15px;
+		}
+
+		#dv_placeholder .n18 {
+			width: 275px;
+			height: 20px;
+		}
+
+		#dv_placeholder .n19 {
+			width: 280px;
+			height: 20px;
+		}
+
+		#dv_placeholder .n20 {
+			width: 285px;
+			height: 20px;
+		}
+
+		#dv_placeholder .n21 {
+			width: 290px;
+			height: 20px;
+		}
+
+		#dv_placeholder .n22 {
+			width: 295px;
+			height: 25px;
+		}
+
+		#dv_placeholder .n23 {
+			width: 300px;
+			height: 35px;
+		}
+
+		#dv_placeholder .n24 {
+			width: 305px;
+			height: 145px;
+		}
+
+		#dv_placeholder .n25 {
+			width: 300px;
+			height: 30px;
+		}
+
+		#dv_placeholder .n26 {
+			width: 295px;
+			height: 20px;
+		}
+
+		#dv_placeholder .n27 {
+			width: 290px;
+			height: 15px;
+		}
+
+	</style>
+</head>
+
+<body>
+	<!-- 第一步，html结构 -->
+	<div id="dv_nav">
+		<h2>导航</h2>
+		<!--=======================================================-->.
+		<!-- 第三步，根据psd网格，获取弧度坐标值，加入占位元素 -->
+		<div id="dv_placeholder">
+			<div class="n1"></div>
+			<div class="n2"></div>
+			<div class="n3"></div>
+			<div class="n4"></div>
+			<div class="n5"></div>
+			<div class="n6"></div>
+			<div class="n7"></div>
+			<div class="n8"></div>
+			<div class="n9"></div>
+			<div class="n10"></div>
+			<div class="n11"></div>
+			<div class="n12"></div>
+			<div class="n13"></div>
+			<div class="n14"></div>
+			<div class="n15"></div>
+			<div class="n16"></div>
+			<div class="n17"></div>
+			<div class="n18"></div>
+			<div class="n19"></div>
+			<div class="n20"></div>
+			<div class="n21"></div>
+			<div class="n22"></div>
+			<div class="n23"></div>
+			<div class="n24"></div>
+			<div class="n25"></div>
+			<div class="n26"></div>
+			<div class="n27"></div>
+		</div>
+
+		<!--=======================================================-->
+		<ul id="ul_nav">
+			<li class="n1">
+				<h3>
+					<span>洗护系列</span>
+				</h3>
+				<ul>
+					<li class="n1">
+						<a href="###">赋活水养</a>
+					</li>
+					<li class="n2">
+						<a href="###">动感卷曲</a>
+					</li>
+					<li class="n3">
+						<a href="###">清衡水润</a>
+					</li>
+					<li class="n4">
+						<a href="###">润感去屑</a>
+					</li>
+					<li class="n5">
+						<a href="###">质感垂坠</a>
+					</li>
+					<li class="n6">
+						<a href="###">炫感彩护</a>
+					</li>
+				</ul>
+			</li>
+			<li class="n2">
+				<h3>
+					<span>造型系列</span>
+				</h3>
+				<ul>
+					<li class="n1">
+						<a href="###">珠光亮泽</a>
+					</li>
+					<li class="n2">
+						<a href="###">酷炫凌乱</a>
+					</li>
+					<li class="n3">
+						<a href="###">弹性卷曲</a>
+					</li>
+					<li class="n4">
+						<a href="###">强力定型</a>
+					</li>
+					<li class="n5">
+						<a href="###">垂顺亮直</a>
+					</li>
+					<li class="n6">
+						<a href="###">自然线条</a>
+					</li>
+					<li class="n7">
+						<a href="###">炫色润发</a>
+					</li>
+					<li class="n8">
+						<a href="###">沙龙护理锁水发膜</a>
+					</li>
+				</ul>
+			</li>
+			<li class="n3">
+				<h3>
+					<a href="###">促销信息</a>
+				</h3>
+			</li>
+			<li class="n4">
+				<h3>
+					<span>秀发护理小TIPS</span>
+				</h3>
+				<ul>
+					<li class="n1">
+						<a href="###">洗发知多少</a>
+					</li>
+					<li class="n2">
+						<a href="###">护发怎么办</a>
+					</li>
+					<li class="n3">
+						<a href="###">型发知多少</a>
+					</li>
+				</ul>
+			</li>
+			<li class="n5">
+				<h3>
+					<a href="###">VIDEO</a>
+				</h3>
+			</li>
+		</ul>
+	</div>
+	<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+	<script>
+		$(function(){
+			/* 第五步，二级菜单展开 */
+			$("#ul_nav h3 *").on("click",function(){
+				$(this).parent().next().slideToggle()
+			})
+		})
+	</script>
+</body>
+
+</html>
